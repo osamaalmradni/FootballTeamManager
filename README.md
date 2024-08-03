@@ -10,7 +10,7 @@ Installation
 1.	Clone the repository from GitHub:
 bash
 Code kopieren
-git clone https://github.com/osamaalmradni/o.almaradni.git
+git clone https://github.com/osamaalmradni/FootballTeamManager.git
 2.	Navigate to the project directory:
 bash
 Code kopieren
