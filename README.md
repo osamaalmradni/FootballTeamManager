@@ -1,71 +1,81 @@
-Football Team Manager
-Welcome to the Football Team Manager! This application helps you manage a football team, including registering users, logging in, viewing team details, and managing user profiles.
-Features
-•	User Registration: Register new users with details such as username, password, first name, last name, date of birth, position, and photo.
-•	User Login: Login with a registered username and password.
-•	View Team: View the details of all registered users in the team.
-•	Profile Management: View and update user profiles, including uploading new photos.
-•	Account Deletion: Delete user accounts.
-Installation
-1.	Clone the repository from GitHub:
-bash
-Code kopieren
-git clone https://github.com/osamaalmradni/FootballTeamManager.git
-2.	Navigate to the project directory:
-bash
-Code kopieren
-cd o.almaradni
-3.	Install the required Python packages:
-bash
-Code kopieren
-pip install -r requirements.txt
-4.	Set up the MySQL database by executing the following SQL script:
-sql
-Code kopieren
-CREATE DATABASE football_team;
+# Football Team Manager
 
-USE football_team;
+A comprehensive Football Team Management application developed by Mohammad Osama Almaradni.
 
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    date_of_birth DATE NOT NULL,
-    position ENUM('Player', 'Coach') NOT NULL,
-    email VARCHAR(255),
-    jersey_number INT,
-    street VARCHAR(255),
-    building_number VARCHAR(50),
-    postal_code VARCHAR(50),
-    city VARCHAR(50),
-    primary_position VARCHAR(50),
-    secondary_position VARCHAR(50),
-    height DOUBLE,
-    preferred_foot VARCHAR(50),
-    photo LONGBLOB
-);
-Usage
-1.	Run the application:
-bash
-Code kopieren
-python main.py
-The main window will open, allowing you to register, login, view the team, or exit the application.
-2.	To register a new user, click on the "Register" button and fill out the registration form. You can also upload a photo.
-3.	To login, click on the "Login" button and enter your username and password.
-4.	Once logged in, you can view and update your profile, including uploading a new photo.
-5.	To view the entire team, click on the "View Team" button. The team details will be displayed in a table.
-Dependencies
-•	tkinter: For creating the GUI.
-•	tkcalendar: For date entry widget.
-•	mysql-connector-python: For connecting to the MySQL database.
-•	Pillow: For handling images.
-•	bcrypt: For hashing passwords.
-License This project is licensed under the MIT License.
-Author Osama Almaradni
-GitHub: osamaalmradni
-Feel free to contribute to this project by submitting issues or pull requests on GitHub. Enjoy managing your football team!
-Note: Ensure that the MySQL server is running and properly configured before running the application. Adjust the MySQL connection parameters in the code if necessary.
+## Description
 
+This application provides a user-friendly interface for managing a football team. It allows users to register, login, view and edit their profiles, and view the entire team roster. The application is built using Python with Tkinter for the GUI and MySQL for data storage.
+
+## Features
+
+- User Registration
+- User Login
+- Profile Management
+- Team Roster View
+- Data Persistence using MySQL
+
+## Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/osamaalmradni/football-team-manager.git
+   ```
+
+2. Install the required Python packages:
+   ```
+   pip install mysql-connector-python bcrypt tkcalendar
+   ```
+
+3. Set up the MySQL database:
+   - Install MySQL if you haven't already
+   - Create a new database named `football_team`
+   - Use the following SQL code to create the necessary table:
+
+   ```sql
+   CREATE TABLE users (
+       id INT PRIMARY KEY,
+       username VARCHAR(50) UNIQUE NOT NULL,
+       password VARCHAR(255) NOT NULL,
+       first_name VARCHAR(50) NOT NULL,
+       last_name VARCHAR(50) NOT NULL,
+       date_of_birth DATE NOT NULL,
+       position VARCHAR(20) NOT NULL,
+       email VARCHAR(100),
+       street VARCHAR(100),
+       building_number VARCHAR(20),
+       postal_code VARCHAR(20),
+       city VARCHAR(50),
+       jersey_number INT,
+       primary_position VARCHAR(20),
+       secondary_position VARCHAR(20),
+       height INT,
+       preferred_foot VARCHAR(10)
+   );
+   ```
+
+4. Update the database connection details in `model.py` if necessary.
+
+## Usage
+
+Run the application by executing:
+
+```
+python controller.py
+```
+
+## Structure
+
+- `controller.py`: Contains the main application logic and handles communication between the model and view.
+- `model.py`: Manages database operations and data manipulation.
+- `view.py`: Handles all GUI-related operations and user interactions.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Author
+
+Mohammad Osama Almaradni
+
+GitHub: [https://github.com/osamaalmradni](https://github.com/osamaalmradni)
 
